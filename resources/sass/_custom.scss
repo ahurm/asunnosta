@@ -1,0 +1,158 @@
+/* Custom CSS */
+nav {
+    margin-bottom:20px;
+}
+.dashboard-flex {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+
+  .flex-inputs,
+  .flex-inputs .price-inputs,
+  .flex-inputs .size-inputs {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-content: center;
+}
+.flex-inputs .price-inputs input,
+.flex-inputs .size-inputs input,
+.flex-inputs .bedrooms-inputs input,
+.flex-inputs .bathrooms-inputs input {
+  max-width: 150px;
+  margin-right: 10px;
+}
+.flex-inputs .price-inputs p,
+.flex-inputs .size-inputs p {
+  line-height:37px;
+  margin: 0 10px 0 0;
+}
+.flex-inputs .size {
+  margin: 0 0 0 30px;
+}
+
+.flex-inputs .bedrooms,
+.flex-inputs .bathrooms {
+  margin: 0 0 0 38px;
+}
+
+
+.flex-inputs .size-inputs p:last-child {
+  margin: 0;
+}
+.flex-inputs .bedrooms-inputs input,
+.flex-inputs .bathrooms-inputs input {
+  width: 65px;
+}
+.dashboard-listing a:link,
+.dashboard-listing a:visited,
+.dashboard-listing a:active {
+color: black;
+}
+.house-img {
+  width: 350px;
+}
+.active-custom,
+.active-custom a {
+  color: #fff;
+  background-color: #007bff;
+  border-color: #007bff;
+}
+span .btn-group {
+  min-width: 195px;
+}
+span .btn-group button {
+display: flex;
+justify-content: space-between;
+align-items: center;
+color: #212529;
+background-color: #e2e6ea;
+border-color: #dae0e5;
+}
+.short-input {
+  width:70px;
+}
+
+.flex-inputs .flex-vertical {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-items-second input {
+width: 100px;
+margin-bottom: 10px;
+}
+.flex-items-second label {
+  margin-top: 10px;
+  }
+
+  .flex-vertical .search-button {
+margin-bottom: 10px;
+align-self: flex-end;
+width: 100px;
+  }
+  .bedrooms-inputs input {
+    margin: 0!important;
+  }
+// Overwrite bootstrap 
+
+.card-deck {
+  margin-bottom: 30px;
+}
+.card-listing a,
+.card-listing a:link,
+.card-listing a:hover,
+.card-listing a:active,
+.card-listing a:visited,
+.card-listing a p,
+.card-listing a small {
+  color: #212529!important; 
+  text-decoration: none!important;
+}
+
+@media (min-width: 576px) {
+  .card-deck .card {
+    flex: 0 0 18em;
+
+  }
+}
+@media (max-width: 991.98px) {
+  .show-details {
+    width: 100%;
+  }
+
+}
+@media (min-width: 992px) {
+  .show-details {
+    width: 50%;
+  }
+
+}
+
+// Leaflet
+#map {
+  width: 450px;
+  height: 300px;
+}
+
+// Fade text
+.fade-text {
+  height: 100px;
+  position: relative;
+  overflow: hidden;
+}
+.fade-text .fader{ 
+  position: absolute; 
+  bottom: 0; 
+  left: 0;
+  width: 100%; 
+  text-align: center; 
+  margin: 0; padding: 30px 0; 
+	
+  /* "transparent" only works here because == rgba(0,0,0,0) */
+  background-image: linear-gradient(to bottom, transparent, white);
+}
+.fade-text .card-text {
+  margin:0;
+}
