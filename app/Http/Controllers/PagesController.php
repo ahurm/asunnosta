@@ -10,7 +10,8 @@ class PagesController extends Controller
 {
     public function index()
     {
-
+        //Show recently viewed listings by id saved in cookie
+        //Check if cookie exists and then find listings
         if(Cookie::has('visited')) {
             $visited = json_decode(Cookie::get('visited'));
             $visited = array_reverse($visited);
@@ -19,12 +20,12 @@ class PagesController extends Controller
             $visited = null;
             $listings = null;
         }  
-        
+        //Return listings to frontpage
         return view('pages.frontpage')->with('listings', $listings);
     }
     public function about()
     {
-        $title = "About Us";
-        return view('pages.about')->with('title', $title);
+        //Return about view
+        return view('pages.about');
     }
 }
