@@ -39,7 +39,7 @@ class User extends Authenticatable
 
     public function listings(){
         //One to many relationship with Listing model
-        //using user_id as "foreing key"
+        //using user_id as "foreign key"
         return $this->hasMany('App\Listing');
     }
 }
