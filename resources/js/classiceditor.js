@@ -1,4 +1,4 @@
-// CKEditor
+// CKEditor API
 ClassicEditor.create(document.querySelector("#editor"), {
     removePlugins: ["Heading", "Link"],
     toolbar: ["bold", "italic", "bulletedList", "numberedList", "undo", "redo"]
@@ -6,7 +6,7 @@ ClassicEditor.create(document.querySelector("#editor"), {
     console.log(error);
 });
 
-// bootstrap-multiselect
+// bootstrap-multiselect for multiselect dropdowns
 $(document).ready(function() {
     $("#apartment-type").multiselect({
         buttonContainer: '<div class="btn-group" />',
