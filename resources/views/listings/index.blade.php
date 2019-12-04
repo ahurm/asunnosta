@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
+
+{{-- Form --}}
 <form action="{{action('SearchController@search')}}" method="POST">
     {{csrf_field()}}
     <div class="form-group">
@@ -8,6 +10,8 @@
             <div class="flex-vertical">
                 <label>Apartment type</label>
                 <div class="price-inputs">
+                
+                {{-- Multiselect dropdown --}}
                     <select id="apartment-type" name="types[]" multiple="multiple" class="form-control">
                         <option value="Apartments">Apartments</option>
                         <option value="Detached house">Detached house</option>
@@ -18,8 +22,12 @@
                 <div class="flex-items-second">
                     {{Form::label('priceLabel', 'Price')}}
                     <div class="price-inputs">
+                    
+                    {{-- Text input --}}
                         {{Form::text('priceMin', '', ['class' => ['form-control','short-input'], 'placeholder' => 'min'])}}
                         <p>-</p>
+                        
+                    {{-- Text input --}}
                         {{Form::text('priceMax', '', ['class' => ['form-control','short-input'], 'placeholder' => 'max'])}}
                         <p>€</p>
                     </div>
@@ -28,6 +36,8 @@
             <div class="flex-vertical">
                 <label>Bedrooms</label>
                 <div class="size-inputs">
+                
+                {{-- Multiselect dropdown --}}
                     <select id="room-amount" name="rooms[]" multiple="multiple" class="form-control">
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -39,8 +49,12 @@
                 <div class="flex-items-second">
                     {{Form::label('sizeLabel', 'Size')}}
                     <div class="size-inputs">
+                    
+                    {{-- Text input --}}
                         {{Form::text('sizeMin', '', ['class' => ['form-control','short-input'], 'placeholder' => 'Size'])}}
                         <p>-</p>
+                        
+                    {{-- Text input --}}
                         {{Form::text('sizeMax', '', ['class' => ['form-control','short-input'], 'placeholder' => 'Size'])}}
                         <p>m²</p>
                     </div>
@@ -49,6 +63,8 @@
             <div class="flex-vertical d-flex justify-content-between">
                 <div class="flex-vertical">
                     <label>Sort By</label>
+                    
+                    {{-- Multiselect dropdown --}}
                     <select id="sortby" name="sortby" class="form-control">
                         <option value="Recent">Recent</option>
                         <option value="Oldest">Oldest</option>
@@ -63,9 +79,11 @@
         </div>
 </form>
 <h1>Listings</h1>
+{{-- Loop through listings if they exists --}}
 @if (count($listings) > 0)
 @foreach ($listings as $listing)
 
+{{-- Add three listings per deck --}}
 @if ($loop->index % 3 == 0 || $loop->first)
 @php
 $i = 0;
@@ -73,6 +91,7 @@ $i = 0;
 <div class="card-deck">
     @endif
 
+{{-- Insert listing data into elements --}}
     <div class="card card-listing">
         <a href="/listings/{{$listing->id}}">
             <img class="card-img-top" src="/storage/images/{{$listing->image}}" alt="Image">
