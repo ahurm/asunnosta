@@ -10,10 +10,14 @@ class SearchController extends Controller
 {
     public function search(Request $request)
     {
+        //Variables for sorting
         $sort = 'asc';
         $prop = 'created_at';
+        
+        //Read sorting parameter from request
         $sortby = $request->input('sortby');
-
+        
+        //Read filter parameters from request
         $types = $request->input('types');
         $rooms = $request->input('rooms');
         $priceMin = (int) $request->input('priceMin');
@@ -21,13 +25,14 @@ class SearchController extends Controller
         $sizeMin = (int) $request->input('sizeMin');
         $sizeMax = (int) $request->input('sizeMax');
 
+        //Check sorting method
         switch ($sortby) {
             case 'Recent':
-                $sort = 'asc';
+                $sort = 'desc';
                 $prop = 'created_at';
             break;
             case 'Oldest':
-                $sort = 'desc';
+                $sort = 'asc';
                 $prop = 'created_at';
             break;
             case 'Price ascending':
@@ -52,7 +57,7 @@ class SearchController extends Controller
         }
 
 
-
+        //Query builder, using functions to resolve used filters
         $listings = Listing::
         where(function ($query) use ($types) {
 
@@ -92,13 +97,13 @@ class SearchController extends Controller
                 $query->whereBetween('size', [$sizeMin, $sizeMax]);
             }
         })
-        ->orderBy($prop, $sort)
+        ->orderBy($prop, $sort) //Using sorting method which was checked before
 
         ->get();
 
 
 
-
+        //Return filtered and sorted listings
         return view('listings.index')->with('listings', $listings);
     }
 }
