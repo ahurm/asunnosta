@@ -1,5 +1,6 @@
 // Leaflet map
 
+//Get longtitutude, latitude and address from view
 let lng = parseFloat(document.getElementById("lng").value);
 let lat = parseFloat(document.getElementById("lat").value);
 let address = document.getElementById("show-address").innerHTML;
@@ -18,11 +19,13 @@ L.tileLayer(
     }
 ).addTo(map);
 
+//Add marker with popup to map
 L.marker([lng, lat])
     .addTo(map)
     .bindPopup(address)
     .openPopup();
 
+//Add circle to map
 L.circle([lng, lat], {
     color: "blue",
     fillColor: "#003",
