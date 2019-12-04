@@ -20,6 +20,7 @@
         <li>jQuery</li>
         <li>MySQL</li>
         <li>Bootstrap</li>
+        <li>Laravel Collective</li>
         <li>CKEditor 5</li>
         <li>OpenCage Geocoder API</li>
         <li>Leaflet</li>
