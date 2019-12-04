@@ -5,6 +5,7 @@
 <h1 id="show-address" class="text-center">{{$listing->address}}</h1>
 <img class="rounded mx-auto d-block" src="/storage/images/{{$listing->image}}">
 
+{{-- Insert listing data into elements --}}
 <div class="d-flex flex-row flex-wrap justify-content-between">
     <div class="mt-3 show-details">
         <h5>Details</h5>
@@ -24,6 +25,7 @@
     </div>
     <div class="mt-3">
         <h5>Location on map</h5>
+       {{-- Leaflet map --}}
         <div id="map">
             <input type="hidden" id="lng" value="{{$listing->longtitude}}">
             <input type="hidden" id="lat" value="{{$listing->latitude}}">
@@ -35,6 +37,7 @@
 <hr>
 <small>Created {{$listing->created_at}} by {{$listing->user->name}}</small>
 <hr>
+{{-- Show edit and delete buttons if you're logged in and you've created the listing --}}
 @if (!Auth::guest())
 @if (Auth::user()->id == $listing->user_id)
 
@@ -42,6 +45,8 @@
     <a href="/listings/{{$listing->id}}/edit" class="btn btn-outline-primary mr-2">Edit</a>
     {!!Form::open(['action' => ['ListingsController@destroy', $listing->id], 'method' => 'POST', 'class' =>
     'pull-right'])!!}
+    
+    {{-- Use DELETE method instead of POST --}}
     {{Form::hidden('_method', 'DELETE')}}
     {{Form::submit('Delete', ['class' => 'btn btn-danger'])}}
 </div>
