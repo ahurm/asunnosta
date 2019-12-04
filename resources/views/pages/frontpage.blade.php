@@ -3,6 +3,7 @@
 @section('content')
 <div class="jumbotron text-center">
     <h1>Welcome to AsunnOSTA</h1>
+    {{-- Show login and register button only for guests --}}
     @guest
     <p>AsunnOSTA is the best website to list your apartment for sale. Login and list it! </p>
     <p><a class="btn btn-primary btn-lg" href="/login" role="button">Login</a> <a class="btn btn-success btn-lg"
@@ -15,7 +16,7 @@
 
         @foreach ($listings as $listing)
 
-
+        {{-- Listing on frontpage --}}
         <div class="card card-listing">
             <a href="/listings/{{$listing->id}}">
                 <img class="card-img-top" src="/storage/images/{{$listing->image}}" alt="Image">
