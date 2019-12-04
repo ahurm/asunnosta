@@ -14,6 +14,7 @@ class DashboardController extends Controller
      */
     public function __construct()
     {
+        // Authenticating
         $this->middleware('auth');
     }
 
@@ -24,6 +25,7 @@ class DashboardController extends Controller
      */
     public function index()
     {
+        //Show logged user listings in dashboard
         $user_id = auth()->user()->id;
         $user = User::find($user_id);
         return view('dashboard')->with('listings', $user->listings);
