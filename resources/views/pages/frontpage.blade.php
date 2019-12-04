@@ -9,7 +9,7 @@
             href="/register" role="button">Register</a></p>
     @endguest
 
-    @if (count($listings) > 0)
+    @if ($listings !== null)
     <h5>You recently viewed</h5>
     <div class="card-deck mx-5 justify-content-around  ">
 
